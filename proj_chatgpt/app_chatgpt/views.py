@@ -9,3 +9,6 @@ def about(request):
 
 def dashboard(request):
     return render(request,'dashboard.html',{})
+
+def prices(request):
+    return render(request,'prices.html',{})
