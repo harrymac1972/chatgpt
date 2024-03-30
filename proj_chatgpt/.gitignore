@@ -1,0 +1,50 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Caches
+*.cache
+*.log
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Dependencies
+lib/
+libs/
+bin/
+python-environments/
+
+# Local development settings
+*.sqlite3
+*.env
+*.env.local
+
+# Static files
+/static/
+
+# Media files
+/media/
+
+# Compiled Python files
+*.pyc
+
+# macOS
+.DS_Store
+
+# IDE settings
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.tmproj
+
+# Ignore migrations, as they can be generated
+**/migrations/*.py
+**/migrations/*.pyc
+
+# Ignore secrets file (contains sensitive information)
+secrets.json
