@@ -1,13 +1,18 @@
 
+import os
 from django.shortcuts import render
 import openai
+from dotenv import load_dotenv
 
+load_dotenv()
 
 def home(request):
     if request.method == "POST":
         question = request.POST['question']
-        api_key = get_api_key()
+        
+        api_key = os.environ.get('OPEN_AI_KEY')
         openai.api_key = api_key
+
         return render(request,'home.html',{'question':question,
                                             'api_key':api_key})
     return render(request,'home.html',{})
@@ -22,10 +27,18 @@ def dashboard(request):
 def prices(request):
     return render(request,'prices.html',{})
 
-# workaround to get environment variable for now
-def get_api_key():    
-    key_h = r"\Users\harry\open_ai_key.txt"
-    with open(key_h, 'r') as file:
-        key_v = file.read()
-    return key_v
+
+
+
+def get_api_response(question):
+    response = openai.Completion.create(
+        model="text-davinci-003",
+        prompt=question,
+        temperature=0,
+        max_tokens=60,
+        top_p=1.0,
+        frequency_penalty=0.0,
+        presence_penalty=0.0
+    )
+    return response
 
