@@ -3,29 +3,28 @@
 
 {% block content %}
 
-{% if question %}
-    <h3>Question: {{ question }}</h3>
+    {% if question %}
+        <h3>Question: {{ question }}</h3>
+        <br>
+    {% endif %}
+
+    <div class="card">
+        <div class="card-header">
+        ChatHarry Response
+        </div>
+        <div class="card-body">
+        <p class="card-text">Epic Answers coming soon!</p>
+        </div>
+    </div>
     <br>
-{% endif %}
-
-<div class="card">
-    <div class="card-header">
-      ChatHarry Response
-    </div>
-    <div class="card-body">
-      <p class="card-text">Epic Answers coming soon!</p>
-    </div>
-  </div>
-  <br>
-  <br>
-  <form method="POST" action="{% url 'home' %}">
-    {% csrf_token %}
-    <div class="mb-3">
-      <input type="text" class="form-control" name="question"
-      placeholder="Ask ChatHarry a Question">
-    </div>
-    <button type="submit" class="btn btn-secondary">Submit</button>
-  </form>
-
+    <br>
+    <form method="POST" action="{% url 'home' %}">
+        {% csrf_token %}
+        <div class="mb-3">
+        <input type="text" class="form-control" name="question"
+        placeholder="Ask ChatHarry a Question">
+        </div>
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
 
 {% endblock %}
