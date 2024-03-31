@@ -13,6 +13,8 @@ def home(request):
         api_key = os.environ.get('OPEN_AI_KEY')
         openai.api_key = api_key
 
+        response = get_api_response(question) # <-- problem
+
         return render(request,'home.html',{'question':question,
                                             'api_key':api_key})
     return render(request,'home.html',{})
